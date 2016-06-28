@@ -1,0 +1,75 @@
+{% extends 'utils/base.html' %}
+{%block styles%}
+    {{super()}}
+    <link href={{url_for('static',filename='index.css')}} rel="stylesheet">
+{%endblock styles%}
+{%block content%}
+    {{super()}}
+{%endblock content%}
+{%block mymain%}
+    <div class="tab_main">
+        <div class="mymain">
+            <div class="navbar navbar-inverse" role="navigation">
+                <div class="container"> <!--设置下拉列表框header-->
+                    <div class="navbar-header">
+                    </div>
+                {# 设置第一个drop-down 选择项目tab #}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">请选择项目 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('about')}}">汽车之家主软件</a></li>
+                            <li><a href="{{url_for('about')}}">汽车之家报价软件</a></li>
+                            <li><a href="#">论坛软件</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">其他软件</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {# 设置第二个drop-down 选择平台tab  #}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">请选择平台 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('about')}}">Android平台</a></li>
+                            <li><a href="{{url_for('about')}}">iOS平台</a></li>
+                            <li><a href="{{url_for('about')}}">iPad平台</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">其他平台</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {# 设置第三个drop-down 选择版本平台tab  #}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">请选择版本 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('about')}}">5.8.0版本</a></li>
+                            <li><a href="{{url_for('about')}}">5.9.0版本</a></li>
+                            <li><a href="{{url_for('about')}}">6.0.1版本</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">6.4.0小包</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索</a>
+                    </div>
+                </div>
+                <!-- Single button -->
+
+            </div>
+        </div>
+        <div class="title_case_lib">
+            <table align="center" width="945">
+                <tr>
+                    <td border="1">公共模块</td>
+                    <td></td>
+                    <td>wuhan</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+{%endblock mymain%}

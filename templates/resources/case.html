@@ -1,0 +1,143 @@
+{% extends 'utils/base.html' %}
+{%block styles%}
+    {{super()}}
+    <link href={{url_for('static',filename='index.css')}} rel="stylesheet">
+{%endblock styles%}
+{%block scripts%}
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function(){
+            var mytable=$("#keytable");
+            var trlength=mytable.find("tr").length;
+            $("table td").click(function(){
+                var row=$(this).parent().index()+1;
+                var col=$(this).index()+1;
+                alert("当前位置:第"+row+"行,第"+col+"列");
+            });
+
+            $("#addItem").on('click',function(){
+                $("#keytable td").each(function(j,element){ <!-- j当前行  element每一个项-->
+
+                var row=$(this).parent().index()+1;
+                var col=$(this).index()+1;
+                if(row!=1){
+                    <!--$("#getitems").append("第"+row+"行,第"+col+"列元素:"+$(element).text()+"<br>");-->
+                    if($(element).text()!=""){
+                            $("#getitems").append("第"+row+"行,第"+col+"列元素:"+$(element).text()+"<br>");
+                        }
+                    }
+                });
+                <!--for (var i=0;i<trlength;i++){-->
+                    <!--$("#keytable ")-->
+                <!--}-->
+            });
+        });
+    </script>
+{%endblock scripts%}
+{%block content%}
+    {{super()}}
+{%endblock content%}
+{%block mymain%}
+    <div class="tab_main">
+        <div class="mymain">
+            <div class="navbar navbar-inverse" role="navigation">
+                <div class="container"> <!--设置下拉列表框header-->
+                    <div class="navbar-header">
+                    </div>
+                {# 设置第一个drop-down 选择项目tab #}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">请选择项目 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('about')}}">汽车之家主软件</a></li>
+                            <li><a href="{{url_for('about')}}">汽车之家报价软件</a></li>
+                            <li><a href="#">论坛软件</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">其他软件</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {# 设置第二个drop-down 选择平台tab  #}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">请选择平台 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('about')}}">Android平台</a></li>
+                            <li><a href="{{url_for('about')}}">iOS平台</a></li>
+                            <li><a href="{{url_for('about')}}">iPad平台</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">其他平台</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {# 设置第三个drop-down 选择版本平台tab  #}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">请选择版本 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('about')}}">5.8.0版本</a></li>
+                            <li><a href="{{url_for('about')}}">5.9.0版本</a></li>
+                            <li><a href="{{url_for('about')}}">6.0.1版本</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">6.4.0小包</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索</a>
+                    </div>
+                </div>
+                <!-- Single button -->
+
+            </div>
+        </div>
+        <div class="title_case_lib">
+            <table id="keytable" align="center" border="1" width="945">
+                <tr>
+                    <td border="1">公共模块</td>
+                    <td>api类型</td>
+                    <td>控件名称</td>
+                    <td>动作方法|操作</td>
+                    <td>断言、输入值</td>
+                    <td>标记</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>sleep=3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>find_element_by_id</td>
+                    <td>com.cubic.autohome/cubic.get_id</td>
+                    <td>click</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>find_element_by_id</td>
+                    <td>com.cubic.autohome/cubic.get_id</td>
+                    <td>text</td>
+                    <td>assertEquals="上海"</td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+        <div class="bottom_div">
+                <Button type="button" id="addItem">添加</Button>
+                <input type="text" style="width:70px;font-size:10px;" value="公共模块">
+                <input type="text" style="width:70px;font-size:10px;" value="公共模块">
+                <input type="text" style="width:70px;font-size:10px;" value="公共模块">
+                <input type="text" style="width:70px;font-size:10px;" value="公共模块">
+                <input type="text" style="width:70px;font-size:10px;" value="公共模块">
+                <input type="text" style="width:70px;font-size:10px;" value="公共模块">
+        </div>
+        <p id="getitems"></p>
+
+{%endblock mymain%}

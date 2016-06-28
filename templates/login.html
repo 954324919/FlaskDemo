@@ -1,0 +1,54 @@
+{% extends 'utils/base.html' %}
+{%block styles%}
+    {{super()}}
+    <link href="static/login.css" rel="stylesheet">
+{%endblock styles%}
+{%block content%}
+    {{super()}}
+{%endblock content%}
+{%block mymain%}
+<div class="maincenter">
+    <div class="loginBox">
+        <div class="loginblock">
+            <dl class="dl_bt">
+                <form method="POST">
+                <dd>
+                    <span>账号</span>
+                    <input id="username" type="text" class="lgpt" name="username">
+
+                </dd>
+                <dd>
+                    <span>密码</span>
+                    <input id="password" type="password" class="lgpt" maxlength="40" size="40" autocomplete="off" name="password">
+                </dd>
+                <dd class="ddbut">
+                    <input type='submit'  class="ibut" value="登 录" id="submit">
+
+                </dd>
+                </form>
+            </dl>
+            <dl class="dl_bt2">
+                <dd class="else">
+                    <div class="elsetit">其他账号登录(目前暂不支持)</div>
+                    <a href="aacount.autohome.com.cn/oauth/tencentoauth?t=Index&amp;backurl=http%3a%2f%2fwww.autohome.com.cn%2fbeijing%2f" class="elsetx">
+                        <i class="else_qq"></i>QQ登录
+                    </a>
+                    <a href="https://api.weibo.com/oauth2/authorize?client_id=1840368151&response_type=code&redirect_uri=http%3a%2f%2faccount.autohome.com.cn%2foauth%2fsinaoauthresult%3fbackurl%3dhttp%253a%252f%252fwww.autohome.com.cn%252fbeijing%252f%26t%3dIndex" class="elsetx">
+                        <i class="else_weibo"></i>微博登录
+                    </a>
+                    <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx655ce25c5b87577a&redirect_uri=http%3a%2f%2faccount.autohome.com.cn%2foauth%2fweixinoauthresult%3fbackurl%3dhttp%253a%252f%252fwww.autohome.com.cn%252fbeijing%252f%26t%3dIndex&scope=snsapi_login&state=STATE#wechat_redirect" class="elsetx">
+                        <i class="else_weixin"></i>微信登录
+                    </a>
+                </dd>
+                <dd>
+
+                        还没有汽车之家账号？&nbsp;&nbsp;<a href="http://account.autohome.com.cn/register?rt=0&backurl=http%3a%2f%2fwww.autohome.com.cn%2fbeijing%2f">立即注册>></a>
+                </dd>
+                <dd class="gray">
+                    此账号是你进入后台的唯一密码，请妥善保管！
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+{%endblock mymain%}
